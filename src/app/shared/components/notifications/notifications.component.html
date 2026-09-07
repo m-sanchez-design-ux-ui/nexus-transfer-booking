@@ -1,0 +1,13 @@
+@if (notifications.length) { @for (notification of notifications; track $index;
+let i = $index) {
+
+<div
+  class="absolute top-5 right-[30px] z-[39] w-full max-w-[300px] lg:max-w-md inline-flex items-center p-4 mb-4 text-red-600 rounded-lg shadow bg-red-100 dark:bg-gray-800 dark:text-red-400 animate-slide-in-right-fade"
+  role="alert"
+>
+  <span class="sr-only">Info</span>
+  <div class="!flex px-3 text-sm font-medium">
+    {{ notification.data.text }}
+  </div>
+</div>
+} }

@@ -1,0 +1,30 @@
+<app-search-results
+  [flightList]="flightList()"
+  [idModal]="searchResultModalId()"
+  [invalidFormat]="invalidFlightNumberSearchForm()"
+/>
+<app-notifications></app-notifications>
+<main-layout [step]="0">
+  <ng-content layout-left />
+
+  <ng-content layout-content>
+    <div class="flex flex-col gap-5">
+      <h4 class="text-center text-xl font-normal text-text-greetings-01">
+        {{ "arrival_flight_greeting" | translate }}
+        <strong>{{ userName() }}</strong>
+      </h4>
+      <h3
+        class="text-center text-[1.875rem] font-bold leading-none text-text-title"
+      >
+        {{ "arrival_flight_title" | translate }}
+      </h3>
+      <p class="text-base font-normal leading-normal text-text-paragraph-01">
+        {{ "arrival_flight_paragraph" | translate }}
+      </p>
+    </div>
+    <app-search-by-forms
+      [isArrival]="true"
+      (onFlightSearch)="onSearchFlightList($event)"
+    />
+  </ng-content>
+</main-layout>

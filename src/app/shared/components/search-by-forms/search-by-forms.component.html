@@ -1,0 +1,35 @@
+<div class="flex flex-col gap-9">
+  <search-by-tabs (onChangeTab)="onChangeTab($event)">
+    <ng-content flight-number>
+      <app-flight-number-search-form
+        [airLinesList]="airLinesList()"
+        [arrivalDate]="arrivalDate()"
+        [monthString]="monthStringComputed()"
+        (formValueChange)="onFlightNumberFormChange($event)"
+        [isArrival]="isArrival()"
+      />
+    </ng-content>
+    <ng-content route>
+      <app-route-search-form
+        [airportList]="airportList()"
+        [airLinesList]="airLinesList()"
+        [arrivalDate]="arrivalDate()"
+        [nameAirport]="nameAirport()"
+        [monthString]="monthStringComputed()"
+        [iataAirport]="iataAirport()"
+        [isArrival]="isArrival()"
+        [countryNameArr]="countryNameArr()"
+        [countryNameDep]="countryNameDep()"
+        (formValueChange)="onRoutSearchFormChange($event)"
+      />
+    </ng-content>
+  </search-by-tabs>
+  <button
+    id="btn-submit"
+    (click)="serchFligth()"
+    type="button"
+    class="mx-auto w-full max-w-[300px] font-medium rounded-[5px] text-base px-5 py-2.5 text-text-primary-button bg-gradient-to-r from-tertiary via-primary to-secondary bg-opacity-100 hover:opacity-90 focus:ring-4 focus:ring-primary focus:ring-opacity-30"
+  >
+    {{ "arrival_flight_search_button" | translate }}
+  </button>
+</div>

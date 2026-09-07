@@ -1,0 +1,46 @@
+<div class="flex">
+  <button
+    id="dropdownDefaultButton"
+    data-dropdown-toggle="dropdown"
+    #dropdownBtn
+    [ngClass]="buttonClasses()"
+    type="button"
+  >
+    {{ this.I18nService.language().displayName }}
+    <svg
+      class="w-2.5 h-2.5 ms-3"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 10 6"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="m1 1 4 4 4-4"
+      />
+    </svg>
+  </button>
+  <div
+    id="dropdown"
+    class="z-10 hidden bg-white shadow-sm w-44 border-solid border border-[#D9D9D9] rounded-[10px]"
+  >
+    <ul
+      class="py-2 text-sm !text-gray-700 dark:text-gray-200"
+      aria-labelledby="dropdownDefaultButton"
+    >
+      @for(language of languagesFromContentful(); track $index){
+      <li
+        (click)="selectLanguage(language)"
+        (keydown)="selectLanguage(language)"
+      >
+        <p class="block px-4 py-2 hover:bg-gray-100">
+          {{ language.code }}
+        </p>
+      </li>
+      }
+    </ul>
+  </div>
+</div>

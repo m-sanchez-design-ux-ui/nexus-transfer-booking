@@ -1,0 +1,70 @@
+<div class="py-[25px] px-5 rounded-[10px] border border-gray-borders min-h-[238px] flex flex-col gap-5">
+    <div class="flex flex-col-reverse items-center lg:flex-row lg:flex-nowrap lg:justify-center lg:items-start gap-5">
+        <div class="w-full max-w-[151px] h-[56px] bg-bg-image-graphic-element-02 bg-contain bg-center bg-no-repeat"></div>
+        <div class="flex flex-col lg:min-w-[245px] lg:max-w-full">
+            <span class="text-text-label-02 text-center lg:text-left text-[14px] font-medium leading-normal">
+                @if (isArrivalFlight()) {
+                    {{ "reservation_detail_arrival_title" | translate }}
+                } @else {
+                    {{ "reservation_detail_departure_title" | translate }}
+                }
+            </span>
+            <span class="text-primary text-[24px] font-bold leading-normal lg:whitespace-nowrap">
+                {{ "reservation_detail_arrival_subtitle" | translate }}
+            </span>
+        </div>
+    </div>
+
+    <hr class="w-full max-w-[494px] border-gray-borders">
+
+    <div class="w-full lg:min-h-[36px] flex flex-col lg:flex-row gap-5">
+
+        <div class="w-full min-h-[36px] gap-[6px] flex flex-col">
+            <span class="text-text-label-01  text-[14px] font-normal leading-[16.5px]">
+                @if (isArrivalFlight()) {
+                    {{ "reservation_detail_arrival_on" | translate }}
+                } @else {
+                    {{ "reservation_detail_departure_on" | translate }}
+                }
+            </span>
+            <span class="text-text-paragraph-01 text-[15px] font-semibold leading-[16.5px]">
+                {{dateFlight()}} {{ "reservation_detail_arriva_time_at" | translate }} {{hourFlight()}}
+            </span>
+        </div>
+
+        <div class="w-full min-h-[36px] gap-[6px] flex flex-col">
+            <span class="text-text-label-01  text-[14px] font-normal leading-[16.5px]">
+                {{ "reservation_detail_arrival_with" | translate }}
+            </span>
+            <span class="text-text-paragraph-01 text-[15px] font-semibold leading-[16.5px] inline-flex flex-nowrap gap-1">
+                <span>{{dataFlight().airline}}</span>
+                <span>|</span>
+                <span>#{{dataFlight().flightNumber}}</span>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="w-full lg:min-h-[36px] flex flex-col lg:flex-row gap-5">
+
+        <div class="w-full min-h-[36px] gap-[6px] flex flex-col">
+            <span class="text-text-label-01  text-[14px] font-normal leading-[16.5px]">
+                {{ "reservation_detail_arrival_at" | translate }}
+            </span>
+            <span class="text-text-paragraph-01 text-[15px] font-semibold leading-[16.5px]">
+                {{dataFlight().from}}
+            </span>
+        </div>
+
+        <div class="w-full min-h-[36px] gap-[6px] flex flex-col">
+            <span class="text-text-label-01  text-[14px] font-normal leading-[16.5px]">
+                {{ "reservation_detail_arrival_to" | translate }}
+            </span>
+            <span class="text-text-paragraph-01 text-[15px] font-semibold leading-[16.5px]">
+                {{dataFlight().to}}
+            </span>
+        </div>
+
+    </div>
+
+</div>

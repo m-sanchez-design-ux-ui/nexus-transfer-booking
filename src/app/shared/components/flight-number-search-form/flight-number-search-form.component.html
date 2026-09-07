@@ -1,0 +1,46 @@
+<form [formGroup]="form" class="flex flex-col gap-0">
+  @defer(when airLinesList().length > 0) {
+  <app-airline-select-component
+    [airlines]="airLinesList()"
+    [selected]="seleccionada()"
+    (selectedChange)="onAirlineChange($event)"
+  />
+  }
+  <hr class="border-gray-borders my-[15px]" />
+  <div class="flex flex-col gap-1.5 h-[85px]">
+    <label
+      for="flightNumber"
+      class="text-center text-[14px] font-normal not-italic leading-none text-text-label-01"
+    >
+      {{ "tabs_flight_number_label" | translate }}
+    </label>
+    <input
+      type="text"
+      id="flightNumber"
+      inputmode="numeric"
+      pattern="[0-9]*"
+      maxlength="4"
+      formControlName="flightNumber"
+      placeholder="0000"
+      class="text-center text-[24px] font-bold not-italic leading-[16.5px] border-none outline-none w-full text-text-input-01 placeholder:text-text-placeholder"
+    />
+    <span
+      class="text-text-label-03 text-center text-[14px] font-medium not-italic leading-none"
+    >
+      {{ "tabs_flight_number_description" | translate }}
+    </span>
+  </div>
+  <hr class="border-gray-borders my-[15px]" />
+  <div class="flex flex-col justify-center gap-2 min-h-[67px]">
+    <span
+      class="text-center text-[14px] font-medium not-italic leading-none text-text-label-01 pt-2"
+    >
+      {{ getDateTitle | translate }}
+    </span>
+    <span
+      class="text-center text-[24px] font-bold not-italic leading-none text-text-label-01"
+    >
+      <span>{{ monthString() }}</span>
+    </span>
+  </div>
+</form>

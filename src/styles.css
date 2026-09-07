@@ -1,0 +1,240 @@
+/*intl-tel-input CSS*/
+@import "intl-tel-input/build/css/intlTelInput.css";
+/*intl-tel-input CSS*/
+
+/*Tailwind CSS Files*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*Tailwind CSS Files*/
+
+/* DEMO NOTE: these are the project's real self-hosted fonts (found in the
+   repo's asset library), used locally instead of the Google Fonts CDN
+   version used in an earlier iteration of this demo. */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/fonts/DM_Sans/DMSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/assets/fonts/Urbanist/Urbanist-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/assets/fonts/Urbanist/Urbanist-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/assets/fonts/Urbanist/Urbanist-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/*CUSTON CSS STYLES FOR THE PROYECT DO NOT DELETE*/
+.bg-overlay-color::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--bgColorOverlayImage);
+  opacity: 0.7;
+
+  z-index: 10;
+  width: 100%;
+  min-height: 208px;
+}
+
+@media (min-width: 1024px) {
+  .bg-overlay-color::before {
+    max-width: 632px;
+    min-height: 100vh;
+    border-bottom-right-radius: 100px;
+  }
+}
+/*CUSTON CSS STYLES FOR THE PROYECT DO NOT DELETE*/
+
+
+/*Z INDEX CHAT BUTTON DO NOT DELETE*/
+
+#nexus-widget-button {
+  z-index:39 !important;
+}
+
+/*Z INDEX CHAT BUTTON DO NOT DELETE*/
+
+/*Animation Do Not Delete*/
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUpBounce 1.75s ease-in-out infinite;
+}
+
+@keyframes scrollUpBounce {
+  0% {
+    transform: translateY(110%); /* empieza desde abajo */
+  }
+  40% {
+    transform: translateY(0); /* llega al centro */
+  }
+  50% {
+    transform: translateY(5%); /* rebote ligero hacia abajo */
+  }
+  60% {
+    transform: translateY(0); /* vuelve al centro */
+  }
+  100% {
+    transform: translateY(-150%); /* sigue hacia arriba y desaparece */
+  }
+}
+
+/*Animation Do Not Delete*/
+
+/*intl-tel-input CUSTOM STYLES CSS Do Not Delete*/
+
+/*padding Flats container*/
+
+.iti__selected-flag {
+  padding-left: 0px !important;
+}
+
+/*Input Border*/
+input.form-control.iti__tel-input {
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px !important;
+  min-height: 30px;
+}
+/*Rounded Hover Flat Container*/
+.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+  border-radius: 5px;
+}
+/*Color Arrow icon & Size*/
+.iti__arrow {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid var(--primary);
+}
+/*Hidden arrow up icon*/
+.iti__arrow--up {
+  border-bottom: 0px solid transparent;
+}
+/*Input Text*/
+input.form-control.iti__tel-input {
+  width: 100%;
+  color: var(--textInput01);
+  font-family: var(--typeDefault);
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.025em;
+}
+/*Placeholder*/
+input.form-control.iti__tel-input::placeholder {
+  color: var(--textPlaceholder);
+}
+/*Border card items Main*/
+.iti__dropdown-content {
+  position: relative;
+  overflow: hidden !important;
+  border-width: 1px;
+  border-radius: 1rem;
+  border-color: rgb(243 244 246);
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+/*Input Search*/
+input.iti__search-input {
+  font-size: 18px;
+  border-width: 0px;
+  padding: 8px 14px 8px 40px;
+  color: var(--textInputSearch);
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+/*Input Search Placeholder*/
+input.iti__search-input::placeholder {
+  color: var(--textPlaceholder);
+}
+/*Input Search Icon*/
+.iti__dropdown-content::before { 
+  position: absolute;
+  top: 22px;
+  left: 14px;
+  content: "";
+  display: inline-flex;
+  width: 20px;
+  height: 20px; 
+  background-image: url("data:image/svg+xml;utf8,<svg fill='none' stroke='%23878787' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' d='M21 21l-4.35-4.35m0 0a7.5 7.5 0 10-10.61 0 7.5 7.5 0 0010.61 0z'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+/*Color stroke top of the list*/
+.iti__search-input + .iti__country-list {
+  border-top: 1px solid #D6D6D6;
+}
+/*List Children*/
+.iti__country {
+    padding: 16px 14px;
+    border-bottom: 1px solid #D6D6D6;
+}
+.iti__country:last-child {
+  margin-bottom: 14px;
+}
+
+/*intl-tel-input CUSTOM STYLES CSS Do Not Delete*/
+
+/*VARIABLES CSS COME FROM CONTENFUL*/

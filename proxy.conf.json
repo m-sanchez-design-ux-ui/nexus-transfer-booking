@@ -1,0 +1,20 @@
+{
+  "/spaces": {
+    "target": "https://cdn.contentful.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/bluediamond": {
+    "target": "https://demo.api.example.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/flightstats": {
+    "target": "https://api.flightstats.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

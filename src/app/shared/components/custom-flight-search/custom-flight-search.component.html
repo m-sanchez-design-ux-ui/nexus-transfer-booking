@@ -1,0 +1,92 @@
+<!--//////////-->
+<!--Paragraph Start-->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <span
+    class="text-text-paragraph-01 font-normal text-base leading-normal inline-flex mb-5"
+  >
+  {{ modalDescription() }}
+</span>
+  <!--Paragraph End-->
+  <!--//////////-->
+  <!--Container Search Flight Number Start-->
+  <div
+    class="w-full bg-white rounded-[20px] border border-gray-borders p-[30px]"
+  >
+    <!--//////////-->
+    <!-- Select Aereolinea Start -->
+    @defer(when airlines.length > 0){
+      <app-airline-select-component
+        [airlines]="airlines"
+        [selected]="seleccionada()"
+        [isAirlineSelected]="isAirlineSelected()"
+        (selectedChange)="onAirlineChange($event)"
+      />
+    }
+    <hr class="border-gray-borders my-[15px]" />
+    <!-- Select Aereolinea End -->
+    <!--//////////-->
+    <!-- Fight Number Start -->
+    <div class="flex flex-col gap-1.5">
+      <label
+        for="flightNumber"
+        class="text-center text-[14px] font-normal not-italic leading-none text-text-label-01"
+        [ngClass]="this.isFlightSelected() ? '' : '!text-red-600'"
+      >
+        {{ "modal_not_appear_flight_number_title" | translate }}
+      </label>
+      <input
+        id="flightNumber"
+        name="flightNumber"
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        maxlength="4"
+        formControlName="flightNumber"
+        placeholder="0000"
+        class="text-center text-[24px] font-bold not-italic leading-[16.5px] border-none outline-none w-full text-text-input-01 placeholder:text-text-placeholder"
+      />
+      <span
+        class="text-text-label-03 text-center text-[14px] font-medium not-italic leading-none"
+      >
+        {{ "modal_not_appear_flight_number_subtitle" | translate }}
+      </span>
+    </div>
+    <hr class="border-gray-borders my-[15px]" />
+    <!-- Fight Number End -->
+    <!--//////////-->
+    <!-- Select Hour Start -->
+    <div class="flex flex-col gap-2 items-center w-full h-full min-h-[85px]">
+      <span class="text-sm font-medium leading-none text-text-label-01 text-center md:text-left">
+        {{ modalLabelTimePicker() }}
+      </span>
+      <app-time-select
+        (hour)="selectHour($event)"
+        (minute)="selectMinute($event)"
+        (period)="selectPeriod($event)"
+        [customContainerClasses]="'!flex-row !flex-nowrap md:!flex-row'"
+        [customButtonAmClasses]="
+          '!h-[42px] md:!h-[42px] !px-3 !py-0 !rounded-l-[5px] md:!rounded-l-[5px] !rounded-r-none md:!rounded-r-none'
+        "
+        [customButtonPmClasses]="
+          '!h-[42px] md:!h-[42px] !px-3 !py-0 !rounded-r-[5px] md:!rounded-r-[5px] !rounded-l-none md:!rounded-l-none'
+        "
+      />
+    </div>
+    <!-- Select Hour End -->
+    <!--//////////-->
+  </div>
+  <!--Container Custom Search Flight End-->
+  <!--//////////-->
+  <!--Main Button Start-->
+  <div class="w-full flex justify-center">
+    <button
+      data-modal-hide="search-results"
+      type="submit"
+      class="mt-5 w-full max-w-[269px] font-medium rounded-[5px] text-base px-5 py-2.5 text-text-primary-button bg-gradient-to-r from-tertiary via-primary to-secondary bg-opacity-100 hover:opacity-90 focus:ring-4 focus:ring-primary focus:ring-opacity-30"
+    >
+      {{ "modal_not_appear_button_confirm" | translate }}
+    </button>
+  </div>
+  <!--Main Button End-->
+  <!--//////////-->
+</form>

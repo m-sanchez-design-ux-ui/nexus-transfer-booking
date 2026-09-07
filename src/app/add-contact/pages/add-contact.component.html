@@ -1,0 +1,93 @@
+<!--Page Add Contact-->
+<app-notifications></app-notifications>
+
+<main-layout [step]="2" [backgroundClass]="'bg-bg-image-03'">
+  <ng-content layout-content>
+    <div class="flex flex-col pt-0 lg:pt-20">
+      <h3 class="text-left text-[30px] font-bold leading-tight text-text-title">
+        {{ "add_contact_title" | translate }}
+      </h3>
+      <p
+        class="text-text-paragraph-01 text-base font-normal leading-normal mt-7"
+      >
+        {{ "add_contact_subtitle" | translate }}
+      </p>
+      <form
+      [formGroup]="phoneForm"
+      >
+        <div
+          class="w-full bg-white border border-gray-borders py-4 px-5 md:py-5 md:px-6 rounded-[20px] my-7 md:my-12 flex flex-col flex-nowrap md:flex-row md:justify-between gap-4 md:gap-5"
+        >
+          <div class="w-full flex flex-col gap-3">
+            <label
+              class="text-left text-[14px] font-normal leading-none text-text-label-01"
+              [ngClass]="isEmailValid() ? '' : '!text-red-600'"
+            >{{ "add_contact_email_label" | translate }}
+            </label>
+            
+            <input
+              type="email"
+              formControlName="email"
+              name="email"
+              id="email"
+              placeholder="email@gmail.com"
+              class="w-full text-left border-0 p-0 text-[20px] lg:text-[22px] font-bold leading-[22px] text-text-input-01 placeholder:text-text-placeholder min-h-[30px]"
+              (change)="changeEmail()"
+            />
+          </div>
+          <div
+            class="border-0 border-t md:border-t-0 md:border-l border-gray-borders"
+          ></div>
+          <div class="w-full bg-transparent flex flex-col gap-3">
+            <label
+              class="text-left text-[14px] font-normal leading-none text-text-label-01"
+              [ngClass]="isPhoneValid() ? '' : '!text-red-600'"
+            >
+              {{ "add_contact_phone_label" | translate }}
+            </label>
+            <input
+              type="tel"
+              #phoneInput
+              class="form-control"
+              formControlName="phone"
+              name="phone"
+              id="phone"
+              placeholder="000-000-0000"
+              (change)="changePhone()"
+            />
+          </div>
+        </div>
+        <!--Checkbox Container-->
+        <div class="flex items-center gap-3">
+          <input
+            id="link-checkbox"
+            type="checkbox"
+            value=""
+            (change)="changeCheckboxTerms()"
+            class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded-sm focus:ring-primary focus:ring-2"
+            [ngClass]="isTermsValid() ? 'border-gray-300': 'border-red-600'"
+          />
+          <label
+            for="link-checkbox"
+            class="text-text-paragraph-02 text-xs font-normal leading-4"
+          >
+            {{ "add_contact_checkbox_label" | translate }}
+            <a
+              href="https://www.nexustours.com/privacy-policy"
+              class="underline"
+              >{{ "add_contact_checkbox_label_link" | translate }}</a
+            >
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <button
+      type="button"
+      (click)="saveReservation()"
+      class="mx-auto w-full max-w-[300px] font-medium rounded-[5px] text-base px-5 py-2.5 text-text-primary-button bg-gradient-to-r from-tertiary via-primary to-secondary bg-opacity-100 hover:opacity-90 focus:ring-4 focus:ring-primary focus:ring-opacity-30"
+    >
+      {{ "add_contact_button" | translate }}
+    </button>
+  </ng-content>
+</main-layout>

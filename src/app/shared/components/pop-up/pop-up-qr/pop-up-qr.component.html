@@ -1,0 +1,50 @@
+<div *ngIf="isOpen()" class="overflow-hidden z-40 fixed bottom-0 right-5 w-full max-w-[318px] h-[416px] lg:h-[436px] rounded-t-[25px] rounded-b-[25px] lg:rounded-b-[0px] border border-gray-borders lg:border-b-[0px]">
+    <!--close button-->
+    <button type="button" (click)="closeCard()" class="cursor-pointer" class="z-10 absolute top-[24px] right-[27px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+            <path d="M10.7421 10.0022L17.6996 2.03965C18.1681 1.50309 18.0791 0.716585 17.499 0.282508C16.9189 -0.152403 16.0708 -0.0682535 15.6022 0.468303L9.00634 8.01675L2.41044 0.468303C1.29433 -0.79727 -0.791284 0.765741 0.31313 2.04048L7.27058 10.003L0.31313 17.9647C-0.155437 18.5013 -0.0664002 19.2878 0.513687 19.7218C1.08928 20.1543 1.94007 20.0751 2.41044 19.536L9.00634 11.9876L15.6022 19.536C16.0735 20.0751 16.9243 20.1543 17.499 19.7218C18.0791 19.2878 18.1681 18.5004 17.6996 17.9647L10.7421 10.0022Z" fill="white"/>
+        </svg>
+    </button>
+    <!--Image cover-->
+    <div class="relative top-[-4px] h-[237px] w-full bg-bg-image-05 bg-contain bg-no-repeat bg-center"></div>
+    <!--Card Body-->
+    <div class="relative bottom-[38px] min-h-[237px] w-full bg-white rounded-t-[25px]">
+        <!--QR Desktop-->
+        <div
+            class="absolute top-[-44px] left-[79px] min-w-40 max-w-40 min-h-40 max-h-40 bg-bg-image-qr bg-contain bg-no-repeat bg-center"
+            [ngClass]="isDesktop ? 'block': 'hidden'"
+        ></div>
+        <!--Element Graphic 04-->
+        <div class="absolute left-0 top-[-32px] min-w-[62px] max-w-[62px] min-h-[65px] max-h-[65px] bg-bg-image-graphic-element-04 bg-no-repeat bg-center bg-contain"></div>
+        <!--Text Container-->
+        <div
+            class="flex flex-col w-full"
+            [ngClass]="isDesktop ? 'pb-0 pt-[124px]': 'pt-[31px] pb-[20px] px-[15px]'"
+        >
+            <h4
+                class="text-text-paragraph-01 text-[20px] font-semibold leading-normal text-center"
+                [ngClass]="isDesktop ? 'inline-block': 'hidden'"
+            >
+                {{ "modal_qr_title" | translate }}
+            </h4>
+            <h4
+                class="text-text-paragraph-01 text-[23px] font-semibold leading-normal text-center"
+                [ngClass]="isDesktop ? 'hidden' : ''"
+            >
+                {{ "modal_qr_title_mobile" | translate }}
+            </h4>
+            <p  [ngClass]="isDesktop ? 'hidden' : ''" class="text-text-paragraph-01 text-base font-medium leading-normal text-center">{{ "modal_qr_text_mobile" | translate }}</p>
+            <p  [ngClass]="!isDesktop ? 'hidden' : ''" class="text-text-paragraph-01 text-base font-medium leading-normal text-center">{{ "modal_qr_text" | translate }}</p>
+        </div>
+        <!--Main Button Start-->
+        <button
+            type="button"
+            (click)="openApp()"
+            class="mx-auto w-full max-w-[202px] h-[40px] font-medium rounded-[5px] text-base px-2.5 py-2.5 text-text-primary-button bg-gradient-to-r from-tertiary via-primary to-secondary bg-opacity-100 hover:opacity-90  focus:ring-4 focus:ring-primary focus:ring-opacity-30 flex items-center justify-center mb-[43px]"
+            [ngClass]="isDesktop ? 'hidden' : ''"
+        >
+        {{ "modal_qr_button" | translate }}
+        </button>
+        <!--Main Button End-->
+    </div>
+</div>

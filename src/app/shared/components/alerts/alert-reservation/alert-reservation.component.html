@@ -1,0 +1,38 @@
+<!-- Main Alert -->
+<div id="alert-reservation" data-modal-target="alert-reservation" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full bg-black/25 backdrop-blur-md font-type-default">
+    <div class="relative w-full max-w-[303px] max-h-full bg-white rounded-lg shadow-sm">
+        <!-- Alert content -->
+        <div class="relative">
+            <!-- Close Buttom -->
+            <div class="absolute top-[-28px] right-[calc(50%-26px)] p-2.5 bg-white rounded-full">
+                <button (click)="closeModal()" type="button" class="min-h-8 max-h-8 min-w-8 max-w-8 text-white bg-red-alert bg-opacity-100 hover:bg-opacity-90 rounded-full text-sm inline-flex justify-center items-center" data-modal-hide="alert-reservation">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="w-3 h-3 fill-none">
+                        <path fill="currentColor" d="M10.99 9.16293C11.5188 9.69394 11.5188 10.5522 10.99 11.0833C10.7262 11.3481 10.38 11.4812 10.0338 11.4812C9.68757 11.4812 9.34134 11.3481 9.07762 11.0833L5.97648 7.96918L2.87535 11.0833C2.61163 11.3481 2.2654 11.4812 1.91918 11.4812C1.57296 11.4812 1.22673 11.3481 0.963008 11.0833C0.434206 10.5522 0.434206 9.69394 0.963008 9.16293L4.06414 6.04886L0.963008 2.93479C0.434206 2.40378 0.434206 1.54548 0.963008 1.01447C1.49181 0.483459 2.34655 0.483459 2.87535 1.01447L5.97648 4.12854L9.07762 1.01447C9.60642 0.483459 10.4612 0.483459 10.99 1.01447C11.5188 1.54548 11.5188 2.40378 10.99 2.93479L7.88883 6.04886L10.99 9.16293Z"/>
+                    </svg>
+                    <span class="sr-only">
+                      Close modal
+                    </span>
+                </button>
+            </div>
+            <!-- Alert Body -->
+            <div class="p-4 pt-6 space-y-2">
+              <h4 id="reservation-modal-text" class="text-center w-full text-base font-bold leading-normal text-text-paragraph-01">
+                {{message()}}
+              </h4>
+              <p class="text-center w-full text-base font-normal leading-normal text-text-paragraph-01">
+                {{messageText()}}
+              </p>
+            </div>
+            <!-- Alert Footer -->
+            <div class="justify-center flex items-center p-4 pt-0">
+              <!--//////////-->
+              <!--Button Start-->
+              <button (click)="closeModal()" data-modal-hide="alert-reservation" type="button" class="py-2.5 px-2 text-sm !font-medium focus:outline-none bg-white rounded-md border border-black focus:z-10 focus:ring-0 [line-height:23px] hover:opacity-80 text-text-paragraph-01">
+                {{ "start_reservation_modal_button" | translate}}
+              </button>
+              <!--Button End-->
+              <!--//////////-->
+            </div>
+        </div>
+    </div>
+</div>
