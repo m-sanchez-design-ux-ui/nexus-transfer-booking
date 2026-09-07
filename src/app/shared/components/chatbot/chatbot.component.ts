@@ -37,7 +37,7 @@ export class ChatbotComponent implements OnInit, OnDestroy {
 
   // Configuración por defecto
   private readonly defaultConfig: ChatbotConfig = {
-    apiUrl: 'https://nexus-staging-dupl.onrender.com',
+    apiUrl: 'https://demo.api.example.com',
     companyName: 'NexusTours',
     primaryColor: '#E73A4E',
     textColor: '#FFFFFF',

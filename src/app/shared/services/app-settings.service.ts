@@ -115,7 +115,7 @@ export class AppSettingsService {
         phoneCall: '',
       },
       chatbot: {
-        apiUrl: 'https://nexus-staging-dupl.onrender.com',
+        apiUrl: 'https://demo.api.example.com',
         companyName: 'NexusTours',
         primaryColor: '#E73A4E',
         textColor: '#FFFFFF',

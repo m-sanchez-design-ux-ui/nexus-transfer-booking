@@ -394,7 +394,7 @@ stroke: #fff; /* Ensure path stroke is white */
       primaryColor: '#E73A4E',
       textColor: '#ffffff',
       companyName: 'NexusTours',
-      apiUrl: 'https://nexus-staging-dupl.onrender.com',
+      apiUrl: 'https://demo.api.example.com',
       widgetId: null,
       pollingInterval: 5000,
       // Engagement settings
